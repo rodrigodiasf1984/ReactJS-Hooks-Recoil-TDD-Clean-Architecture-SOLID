@@ -1,0 +1,42 @@
+Arguments: 
+  /usr/bin/node /usr/local/bin/yarn add -D git-commit-smg-linter
+
+PATH: 
+  /home/rodrigodiasf/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:/home/rodrigodiasf/.yarn/bin:/home/rodrigodiasf/Android/Sdk/emulator:/home/rodrigodiasf/Android/Sdk/tools:/home/rodrigodiasf/Android/Sdk/tools/bin:/home/rodrigodiasf/Android/Sdk/platform-tools:/home/rodrigodiasf/.yarn/bin:/home/rodrigodiasf/Android/Sdk/emulator:/home/rodrigodiasf/Android/Sdk/tools:/home/rodrigodiasf/Android/Sdk/tools/bin:/home/rodrigodiasf/Android/Sdk/platform-tools
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  16.6.2
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/git-commit-smg-linter: Not found
+      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66988:18)
+      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140662:22)
+      at Request.emit (node:events:394:28)
+      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141634:10)
+      at Request.emit (node:events:394:28)
+      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141556:12)
+      at Object.onceWrapper (node:events:513:28)
+      at IncomingMessage.emit (node:events:406:35)
+      at endReadableNT (node:internal/streams/readable:1331:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+npm manifest: 
+  {
+    "name": "clean-react",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "Rodrigo Dias De Figueiredo <rodrigodiasf@gmail.com>",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
