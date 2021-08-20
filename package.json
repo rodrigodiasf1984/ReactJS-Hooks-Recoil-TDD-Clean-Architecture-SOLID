@@ -5,7 +5,10 @@
   "author": "Rodrigo Dias De Figueiredo <rodrigodiasf@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "jest"
+    "test": "jest --passWithNoTests", 
+    "test:watch": "jest --watch", 
+    "test:staged": "jest --findRelatedTests", 
+    "test:ci": "jest --coverage"
   },
   "devDependencies": {
     "@types/jest": "^27.0.1",
