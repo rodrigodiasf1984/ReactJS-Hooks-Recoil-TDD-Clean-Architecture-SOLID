@@ -5,12 +5,13 @@
   "author": "Rodrigo Dias De Figueiredo <rodrigodiasf@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "jest --passWithNoTests", 
-    "test:watch": "jest --watch", 
-    "test:staged": "jest --findRelatedTests", 
+    "test": "jest --passWithNoTests",
+    "test:watch": "jest --watch",
+    "test:staged": "jest --findRelatedTests",
     "test:ci": "jest --coverage"
   },
   "devDependencies": {
+    "@types/faker": "^5.5.8",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.6.2",
     "@typescript-eslint/eslint-plugin": "^4.29.2",
@@ -20,6 +21,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-standard": "^5.0.0",
+    "faker": "^5.5.3",
     "git-commit-msg-linter": "^3.2.8",
     "husky": "^7.0.1",
     "jest": "^27.0.6",
