@@ -5,7 +5,7 @@
   "author": "Rodrigo Dias De Figueiredo <rodrigodiasf@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --open",
+    "start": "webpack serve --open",
     "test": "jest --passWithNoTests --no-cache --runInBand",
     "test:watch": "jest --watch",
     "test:staged": "jest --findRelatedTests",
