@@ -1,10 +1,11 @@
 import React from "react";
-import Spinner from "@/presentation/components/Spinner/Spinner";
+import {
+  LoginHeader,
+  Footer,
+  Input,
+  FormStatus,
+} from "@/presentation/components";
 import Styles from "./login-styles.scss";
-import LoginHeader from "@/presentation/components/Login-header/LoginHeader";
-import Footer from "@/presentation/components/Footer/Footer";
-import Input from "@/presentation/components/Input/Input";
-import FormSatus from "@/presentation/components/FormSatus/FormStatus";
 
 const Login = () => {
   return (
@@ -22,7 +23,7 @@ const Login = () => {
           Entrar
         </button>
         <div className={Styles.link}>Cadastrar</div>
-        <FormSatus />
+        <FormStatus />
       </form>
       <Footer />
     </div>
