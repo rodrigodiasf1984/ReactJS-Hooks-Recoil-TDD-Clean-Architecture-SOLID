@@ -16,8 +16,9 @@ type InputProps = DetailedHTMLProps<
 >;
 
 const Input = (props: InputProps) => {
-  const { errorState } = useContext(Context);
-  const error = errorState[props.name];
+  const { initialState, setInitialState } = useContext(Context);
+  const error = initialState[`${props.name}Error`];
+
   function enableInput(event: FocusEvent<HTMLInputElement>): void {
     event.target.readOnly = false;
   }
@@ -34,9 +35,22 @@ const Input = (props: InputProps) => {
     return "🔴";
   }
 
+  function handleChange(event: FocusEvent<HTMLInputElement>): void {
+    setInitialState({
+      ...initialState,
+      [event.target.name]: event.target.value,
+    });
+  }
+
   return (
     <div className={Styles.inputWrap}>
-      <input {...props} readOnly onFocus={enableInput} />
+      <input
+        {...props}
+        data-testid={props.name}
+        readOnly
+        onFocus={enableInput}
+        onChange={handleChange}
+      />
       {/* <span className={Styles.status}>🔴</span> */}
       <span
         data-testid={`${props.name}-status`}
