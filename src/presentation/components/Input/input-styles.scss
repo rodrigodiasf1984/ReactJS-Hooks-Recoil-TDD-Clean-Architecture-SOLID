@@ -1,5 +1,7 @@
+@import "../../../utils/converterPxToRem.scss";
+
 .inputWrap {
-  margin-top: 16px;
+  margin-top: converterToRem(16);
   display: flex;
   align-items: center;
   position: relative;
@@ -10,8 +12,8 @@
 
   .status {
     position: absolute;
-    right: 8px;
-    font-size: 12px;
+    right: converterToRem(8);
+    font-size: converterToRem(12);
     cursor: help;
   }
 }

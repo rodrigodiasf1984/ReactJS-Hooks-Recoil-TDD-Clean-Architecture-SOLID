@@ -1,6 +1,7 @@
 @import "../../styles/colors.scss";
+@import "../../../utils/converterPxToRem.scss";
 
 .footer {
   background-color: $primary;
-  height: 48px;
+  height: converterToRem(48);
 }

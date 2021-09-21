@@ -1,10 +1,11 @@
 @import "../../styles/colors.scss";
+@import "../../../utils/converterPxToRem.scss";
 
 .spinner {
   display: inline-block;
   position: relative;
-  width: 80px;
-  height: 13px;
+  width: converterToRem(80);
+  height: converterToRem(13);
 
   &.negative {
     div {
@@ -15,29 +16,29 @@
   div {
     position: absolute;
     top: 0px;
-    width: 13px;
-    height: 13px;
+    width: converterToRem(13);
+    height: converterToRem(13);
     border-radius: 50%;
     background: $primaryLight;
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
 
     &:nth-child(1) {
-      left: 8px;
+      left: converterToRem(8);
       animation: spinner1 0.6s infinite;
     }
 
     &:nth-child(2) {
-      left: 8px;
+      left: converterToRem(8);
       animation: spinner2 0.6s infinite;
     }
 
     &:nth-child(3) {
-      left: 32px;
+      left: converterToRem(32);
       animation: spinner2 0.6s infinite;
     }
 
     &:nth-child(4) {
-      left: 56px;
+      left: converterToRem(56);
       animation: spinner3 0.6s infinite;
     }
   }
@@ -69,6 +70,6 @@
   }
 
   100% {
-    transform: translate(24px, 0);
+    transform: translate(converterToRem(24), 0);
   }
 }
