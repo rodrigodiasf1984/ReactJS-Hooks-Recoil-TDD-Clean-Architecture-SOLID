@@ -33,10 +33,15 @@ const Login = () => {
             name="password"
             placeholder="Digite seu password"
           />
-          <button className={Styles.submitButton} type="submit">
+          <button
+            data-testid="submitButton"
+            className={Styles.submitButton}
+            type="submit"
+            disabled
+          >
             Entrar
           </button>
-          <div className={Styles.link}>Cadastrar</div>
+          <div className={Styles.link}>Criar conta</div>
           <FormStatus />
         </form>
       </Context.Provider>
