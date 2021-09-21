@@ -3,6 +3,7 @@ import Spinner from "@/presentation/components/Spinner/Spinner";
 import Styles from "./login-styles.scss";
 import LoginHeader from "@/presentation/components/Login-header/LoginHeader";
 import Footer from "@/presentation/components/Footer/Footer";
+import Input from "@/presentation/components/Input/Input";
 
 const Login = () => {
   return (
@@ -10,18 +11,12 @@ const Login = () => {
       <LoginHeader />
       <form className={Styles.form}>
         <h2>Login</h2>
-        <div className={Styles.inputWrap}>
-          <input type="email" name="email" placeholder="Digite seu e-mail" />
-          <span className={Styles.status}>🔴</span>
-        </div>{" "}
-        <div className={Styles.inputWrap}>
-          <input
-            type="password"
-            name="password"
-            placeholder="Digite sua senha"
-          />
-          <span className={Styles.status}>🔴</span>
-        </div>
+        <Input type="email" name="email" placeholder="Digite sua senha" />
+        <Input
+          type="password"
+          name="password"
+          placeholder="Digite seu password"
+        />
         <button className={Styles.submitButton} type="submit">
           Entrar
         </button>
