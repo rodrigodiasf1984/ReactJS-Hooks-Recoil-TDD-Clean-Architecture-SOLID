@@ -19,12 +19,17 @@ const Login = ({ validation }: LoginProps) => {
     emailError: "Campo obrigatório",
     isLoading: false,
     mainError: "",
+    password: "",
     passwordError: "Campo obrigatório",
   });
 
   useEffect(() => {
     validation.validate({ email: initialState.email });
   }, [initialState.email]);
+
+  useEffect(() => {
+    validation.validate({ password: initialState.password });
+  }, [initialState.password]);
 
   return (
     <div className={Styles.login}>
