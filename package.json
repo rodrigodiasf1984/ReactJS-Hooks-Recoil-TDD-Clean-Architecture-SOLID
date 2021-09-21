@@ -12,6 +12,7 @@
     "test:ci": "jest --coverage"
   },
   "devDependencies": {
+    "@testing-library/react": "^12.1.0",
     "@types/axios": "^0.14.0",
     "@types/faker": "^5.5.8",
     "@types/jest": "^27.0.1",
