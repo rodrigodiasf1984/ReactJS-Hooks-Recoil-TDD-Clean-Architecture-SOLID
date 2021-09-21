@@ -4,6 +4,7 @@ import Styles from "./login-styles.scss";
 import LoginHeader from "@/presentation/components/Login-header/LoginHeader";
 import Footer from "@/presentation/components/Footer/Footer";
 import Input from "@/presentation/components/Input/Input";
+import FormSatus from "@/presentation/components/FormSatus/FormStatus";
 
 const Login = () => {
   return (
@@ -21,10 +22,7 @@ const Login = () => {
           Entrar
         </button>
         <div className={Styles.link}>Cadastrar</div>
-        <div className={Styles.errorWrap}>
-          <Spinner className={Styles.spinner} />
-          <div className={Styles.error}>Erro</div>
-        </div>
+        <FormSatus />
       </form>
       <Footer />
     </div>
