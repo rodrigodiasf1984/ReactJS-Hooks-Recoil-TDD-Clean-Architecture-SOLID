@@ -24,7 +24,7 @@ const Input = (props: InputProps) => {
   }
 
   function getTitle(): string {
-    return error;
+    return error || "Valid";
   }
 
   // function getStatus() {
@@ -32,7 +32,7 @@ const Input = (props: InputProps) => {
   // }
 
   function getStatus(): string {
-    return "🔴";
+    return error ? "🔴" : "🟢";
   }
 
   function handleChange(event: FocusEvent<HTMLInputElement>): void {
