@@ -16,7 +16,7 @@ type LoginProps = {
 const Login = ({ validation }: LoginProps) => {
   const [initialState, setInitialState] = useState({
     email: "",
-    emailError: "Campo obrigatório",
+    emailError: "",
     isLoading: false,
     mainError: "",
     password: "",
@@ -24,7 +24,10 @@ const Login = ({ validation }: LoginProps) => {
   });
 
   useEffect(() => {
-    validation.validate("email", initialState.email);
+    setInitialState({
+      ...initialState,
+      emailError: validation.validate("email", initialState.email),
+    });
   }, [initialState.email]);
 
   useEffect(() => {
