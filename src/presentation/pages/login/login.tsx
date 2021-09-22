@@ -24,11 +24,11 @@ const Login = ({ validation }: LoginProps) => {
   });
 
   useEffect(() => {
-    validation.validate({ email: initialState.email });
+    validation.validate("email", initialState.email);
   }, [initialState.email]);
 
   useEffect(() => {
-    validation.validate({ password: initialState.password });
+    validation.validate("password", initialState.password);
   }, [initialState.password]);
 
   return (
