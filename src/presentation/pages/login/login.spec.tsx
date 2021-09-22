@@ -7,24 +7,12 @@ import {
 } from "@testing-library/react";
 import Login from "./Login";
 import { HiOutlineCheckCircle, HiOutlineXCircle } from "react-icons/hi";
-import { Validation } from "@/presentation/protocols/validation";
+import { ValidationSpy } from "@/presentation/test";
 
 type SutTypes = {
   sut: RenderResult;
   validationSpy: ValidationSpy;
 };
-
-class ValidationSpy implements Validation {
-  errorMessage: string;
-  fieldName: string;
-  fieldValue: string;
-
-  validate(fieldName: string, fieldValue: string): string {
-    this.fieldName = fieldName;
-    this.fieldValue = fieldValue;
-    return this.errorMessage;
-  }
-}
 
 const makeSut = (): SutTypes => {
   const validationSpy = new ValidationSpy();
