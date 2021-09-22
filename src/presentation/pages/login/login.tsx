@@ -20,19 +20,16 @@ const Login = ({ validation }: LoginProps) => {
     isLoading: false,
     mainError: "",
     password: "",
-    passwordError: "Campo obrigatório",
+    passwordError: "",
   });
 
   useEffect(() => {
     setInitialState({
       ...initialState,
       emailError: validation.validate("email", initialState.email),
+      passwordError: validation.validate("password", initialState.password),
     });
-  }, [initialState.email]);
-
-  useEffect(() => {
-    validation.validate("password", initialState.password);
-  }, [initialState.password]);
+  }, [initialState.email, initialState.password]);
 
   return (
     <div className={Styles.login}>
