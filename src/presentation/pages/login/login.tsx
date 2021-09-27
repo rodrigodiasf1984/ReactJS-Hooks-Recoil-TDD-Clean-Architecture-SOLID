@@ -47,7 +47,7 @@ const Login = ({ validation }: LoginProps) => {
             data-testid="submitButton"
             className={Styles.submitButton}
             type="submit"
-            disabled
+            disabled={!!initialState.emailError || !!initialState.passwordError}
           >
             Entrar
           </button>
