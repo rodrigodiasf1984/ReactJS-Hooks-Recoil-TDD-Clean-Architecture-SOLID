@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import {
   LoginHeader,
   Footer,
@@ -31,11 +31,16 @@ const Login = ({ validation }: LoginProps) => {
     });
   }, [initialState.email, initialState.password]);
 
+  const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
+    event.preventDefault();
+    setInitialState({ ...initialState, isLoading: true });
+  };
+
   return (
     <div className={Styles.login}>
       <LoginHeader />
       <Context.Provider value={{ initialState, setInitialState }}>
-        <form className={Styles.form}>
+        <form className={Styles.form} onSubmit={handleSubmit}>
           <h2>Login</h2>
           <Input type="email" name="email" placeholder="Digite sua senha" />
           <Input
