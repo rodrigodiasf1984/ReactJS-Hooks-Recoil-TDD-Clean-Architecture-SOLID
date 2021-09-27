@@ -9,11 +9,13 @@ import {
 import Context from "@/presentation/context/form/form-context";
 import Styles from "./login-styles.scss";
 import { Validation } from "@/presentation/protocols/validation";
+import { Authentication } from "@/domain/usecases";
 
 type LoginProps = {
   validation: Validation;
+  authentication: Authentication;
 };
-const Login = ({ validation }: LoginProps) => {
+const Login = ({ validation, authentication }: LoginProps) => {
   const [initialState, setInitialState] = useState({
     email: "",
     emailError: "",
@@ -31,9 +33,15 @@ const Login = ({ validation }: LoginProps) => {
     });
   }, [initialState.email, initialState.password]);
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
+  const handleSubmit = async (
+    event: FormEvent<HTMLFormElement>
+  ): Promise<void> => {
     event.preventDefault();
     setInitialState({ ...initialState, isLoading: true });
+    await authentication.auth({
+      email: initialState.email,
+      password: initialState.password,
+    });
   };
 
   return (
