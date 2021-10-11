@@ -17,12 +17,12 @@ type LoginProps = {
 };
 const Login = ({ validation, authentication }: LoginProps) => {
   const [initialState, setInitialState] = useState({
-    email: "",
-    emailError: "",
     isLoading: false,
-    mainError: "",
+    email: "",
     password: "",
+    emailError: "",
     passwordError: "",
+    mainError: "",
   });
 
   useEffect(() => {
@@ -37,6 +37,8 @@ const Login = ({ validation, authentication }: LoginProps) => {
     event: FormEvent<HTMLFormElement>
   ): Promise<void> => {
     event.preventDefault();
+    if (initialState.isLoading) return;
+
     setInitialState({ ...initialState, isLoading: true });
     await authentication.auth({
       email: initialState.email,
