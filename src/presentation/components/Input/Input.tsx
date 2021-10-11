@@ -3,12 +3,9 @@ import React, {
   InputHTMLAttributes,
   FocusEvent,
   useContext,
-  ReactElement,
 } from "react";
-import { HiOutlineXCircle, HiOutlineCheckCircle } from "react-icons/hi";
 import Context from "@/presentation/context/form/form-context";
 import Styles from "./input-styles.scss";
-import { IconType } from "react-icons";
 
 type InputProps = DetailedHTMLProps<
   InputHTMLAttributes<HTMLInputElement>,
@@ -24,12 +21,8 @@ const Input = (props: InputProps) => {
   }
 
   function getTitle(): string {
-    return error || "Valid";
+    return error || "Tudo certo!";
   }
-
-  // function getStatus() {
-  //   return <HiOutlineXCircle color="red" />;
-  // }
 
   function getStatus(): string {
     return error ? "🔴" : "🟢";
@@ -51,7 +44,6 @@ const Input = (props: InputProps) => {
         onFocus={enableInput}
         onChange={handleChange}
       />
-      {/* <span className={Styles.status}>🔴</span> */}
       <span
         data-testid={`${props.name}-status`}
         title={getTitle()}
@@ -59,9 +51,6 @@ const Input = (props: InputProps) => {
       >
         {getStatus()}
       </span>
-      {/* <span className={Styles.status}>
-        <HiOutlineCheckCircle color="green" />
-      </span> */}
     </div>
   );
 };

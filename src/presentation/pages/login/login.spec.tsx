@@ -138,4 +138,11 @@ describe("Login Component", () => {
       password,
     });
   });
+
+  test("should calls Authentication once", () => {
+    const { sut, authenticationSpy } = makeSut();
+    simulateValidSubmit(sut);
+    simulateValidSubmit(sut);
+    expect(authenticationSpy.callsCount).toBe(1);
+  });
 });
