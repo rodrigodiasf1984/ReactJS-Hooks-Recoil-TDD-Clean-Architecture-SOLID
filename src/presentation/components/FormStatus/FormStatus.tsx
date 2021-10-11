@@ -9,7 +9,9 @@ const FormSatus = () => {
     <div data-testid="error-wrap" className={Styles.errorWrap}>
       {initialState.isLoading && <Spinner className={Styles.spinner} />}
       {initialState.mainError && (
-        <div className={Styles.error}>initialState.mainError</div>
+        <span data-testid="main-error" className={Styles.error}>
+          {initialState.mainError}
+        </span>
       )}
     </div>
   );

@@ -37,19 +37,27 @@ const Login = ({ validation, authentication }: LoginProps) => {
     event: FormEvent<HTMLFormElement>
   ): Promise<void> => {
     event.preventDefault();
-    if (
-      initialState.isLoading ||
-      initialState.emailError ||
-      initialState.passwordError
-    ) {
-      return;
-    }
+    try {
+      if (
+        initialState.isLoading ||
+        initialState.emailError ||
+        initialState.passwordError
+      ) {
+        return;
+      }
 
-    setInitialState({ ...initialState, isLoading: true });
-    await authentication.auth({
-      email: initialState.email,
-      password: initialState.password,
-    });
+      setInitialState({ ...initialState, isLoading: true });
+      await authentication.auth({
+        email: initialState.email,
+        password: initialState.password,
+      });
+    } catch (error) {
+      setInitialState({
+        ...initialState,
+        isLoading: false,
+        mainError: error.message,
+      });
+    }
   };
 
   return (
