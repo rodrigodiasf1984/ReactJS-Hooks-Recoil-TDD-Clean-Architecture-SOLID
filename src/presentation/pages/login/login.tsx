@@ -37,7 +37,13 @@ const Login = ({ validation, authentication }: LoginProps) => {
     event: FormEvent<HTMLFormElement>
   ): Promise<void> => {
     event.preventDefault();
-    if (initialState.isLoading) return;
+    if (
+      initialState.isLoading ||
+      initialState.emailError ||
+      initialState.passwordError
+    ) {
+      return;
+    }
 
     setInitialState({ ...initialState, isLoading: true });
     await authentication.auth({
@@ -50,7 +56,11 @@ const Login = ({ validation, authentication }: LoginProps) => {
     <div className={Styles.login}>
       <LoginHeader />
       <Context.Provider value={{ initialState, setInitialState }}>
-        <form className={Styles.form} onSubmit={handleSubmit}>
+        <form
+          data-testid="form"
+          className={Styles.form}
+          onSubmit={handleSubmit}
+        >
           <h2>Login</h2>
           <Input type="email" name="email" placeholder="Digite sua senha" />
           <Input
