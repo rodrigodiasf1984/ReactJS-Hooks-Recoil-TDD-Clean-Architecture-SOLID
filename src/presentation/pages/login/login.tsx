@@ -47,10 +47,11 @@ const Login = ({ validation, authentication }: LoginProps) => {
       }
 
       setInitialState({ ...initialState, isLoading: true });
-      await authentication.auth({
+      const account = await authentication.auth({
         email: initialState.email,
         password: initialState.password,
       });
+      localStorage.setItem("accessToken", account.accessToken);
     } catch (error) {
       setInitialState({
         ...initialState,
