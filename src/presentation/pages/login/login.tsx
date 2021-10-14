@@ -10,13 +10,14 @@ import Context from "@/presentation/context/form/form-context";
 import Styles from "./login-styles.scss";
 import { Validation } from "@/presentation/protocols/validation";
 import { Authentication } from "@/domain/usecases";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 type LoginProps = {
   validation: Validation;
   authentication: Authentication;
 };
 const Login = ({ validation, authentication }: LoginProps) => {
+  const history = useHistory();
   const [initialState, setInitialState] = useState({
     isLoading: false,
     email: "",
@@ -53,6 +54,7 @@ const Login = ({ validation, authentication }: LoginProps) => {
         password: initialState.password,
       });
       localStorage.setItem("accessToken", account.accessToken);
+      history.replace("/");
     } catch (error) {
       setInitialState({
         ...initialState,
