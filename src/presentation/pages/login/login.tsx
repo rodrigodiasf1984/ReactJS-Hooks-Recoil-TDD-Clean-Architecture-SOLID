@@ -74,7 +74,7 @@ const Login = ({ validation, authentication }: LoginProps) => {
           onSubmit={handleSubmit}
         >
           <h2>Login</h2>
-          <Input type="email" name="email" placeholder="Digite sua senha" />
+          <Input type="email" name="email" placeholder="Digite seu email" />
           <Input
             type="password"
             name="password"
