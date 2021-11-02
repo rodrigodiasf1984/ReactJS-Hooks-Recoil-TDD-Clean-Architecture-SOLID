@@ -1,0 +1,1 @@
+[![Build Status](https://app.travis-ci.com/rodrigodiasf1984/ReactJS-Hooks-Recoil-TDD-Clean-Architecture-SOLID.svg?branch=master)](https://app.travis-ci.com/rodrigodiasf1984/ReactJS-Hooks-Recoil-TDD-Clean-Architecture-SOLID)
