@@ -10,6 +10,7 @@
     "test:watch": "jest --watch",
     "test:staged": "jest --findRelatedTests",
     "test:ci": "jest --coverage",
+    "test:coveralls": "yarn test:ci && yarn coveralls < coverage/lcov.info",
     "check:dependencies": "npm-check -u -s"
   },
   "devDependencies": {
