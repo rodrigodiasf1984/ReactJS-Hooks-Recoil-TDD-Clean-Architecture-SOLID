@@ -1,9 +1,9 @@
 {
   "name": "clean-react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "author": "Rodrigo Dias De Figueiredo <rodrigodiasf@gmail.com>",
-  "license": "MIT",
+  "license": "GNU GPL3",
   "scripts": {
     "start": "webpack serve --open",
     "test": "jest --passWithNoTests --no-cache --runInBand",
