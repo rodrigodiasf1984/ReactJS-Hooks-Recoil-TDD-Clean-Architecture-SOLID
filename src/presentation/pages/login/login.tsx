@@ -1,68 +1,68 @@
-import React, { FormEvent, useEffect, useState } from "react";
+import React, { FormEvent, useEffect, useState } from 'react'
 import {
   LoginHeader,
   Footer,
   Input,
-  FormStatus,
-} from "@/presentation/components";
+  FormStatus
+} from '@/presentation/components'
 
-import Context from "@/presentation/context/form/form-context";
-import Styles from "./login-styles.scss";
-import { Validation } from "@/presentation/protocols/validation";
-import { Authentication } from "@/domain/usecases";
-import { Link, useHistory } from "react-router-dom";
+import Context from '@/presentation/context/form/form-context'
+import Styles from './login-styles.scss'
+import { Validation } from '@/presentation/protocols/validation'
+import { Authentication } from '@/domain/usecases'
+import { Link, useHistory } from 'react-router-dom'
 
 type LoginProps = {
-  validation: Validation;
-  authentication: Authentication;
-};
-const Login = ({ validation, authentication }: LoginProps) => {
-  const history = useHistory();
+  validation: Validation
+  authentication: Authentication
+}
+const Login: React.FC<LoginProps> = ({ validation, authentication }: LoginProps) => {
+  const history = useHistory()
   const [initialState, setInitialState] = useState({
     isLoading: false,
-    email: "",
-    password: "",
-    emailError: "",
-    passwordError: "",
-    mainError: "",
-  });
+    email: '',
+    password: '',
+    emailError: '',
+    passwordError: '',
+    mainError: ''
+  })
 
   useEffect(() => {
     setInitialState({
       ...initialState,
-      emailError: validation.validate("email", initialState.email),
-      passwordError: validation.validate("password", initialState.password),
-    });
-  }, [initialState.email, initialState.password]);
+      emailError: validation.validate('email', initialState.email),
+      passwordError: validation.validate('password', initialState.password)
+    })
+  }, [initialState.email, initialState.password])
 
   const handleSubmit = async (
     event: FormEvent<HTMLFormElement>
   ): Promise<void> => {
-    event.preventDefault();
+    event.preventDefault()
     try {
       if (
         initialState.isLoading ||
         initialState.emailError ||
         initialState.passwordError
       ) {
-        return;
+        return
       }
 
-      setInitialState({ ...initialState, isLoading: true });
+      setInitialState({ ...initialState, isLoading: true })
       const account = await authentication.auth({
         email: initialState.email,
-        password: initialState.password,
-      });
-      localStorage.setItem("accessToken", account.accessToken);
-      history.replace("/");
+        password: initialState.password
+      })
+      localStorage.setItem('accessToken', account.accessToken)
+      history.replace('/')
     } catch (error) {
       setInitialState({
         ...initialState,
         isLoading: false,
-        mainError: error.message,
-      });
+        mainError: error.message
+      })
     }
-  };
+  }
 
   return (
     <div className={Styles.login}>
@@ -96,7 +96,7 @@ const Login = ({ validation, authentication }: LoginProps) => {
       </Context.Provider>
       <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

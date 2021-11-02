@@ -1,9 +1,10 @@
-import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+import React from 'react'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 type Props = {
-  makeLogin: React.FC;
-};
+  makeLogin: React.FC
+}
 
 const Router = ({ makeLogin }: Props) => {
   return (
@@ -12,7 +13,7 @@ const Router = ({ makeLogin }: Props) => {
         <Route path="/login" exact component={makeLogin} />
       </Switch>
     </BrowserRouter>
-  );
-};
+  )
+}
 
-export default Router;
+export default Router

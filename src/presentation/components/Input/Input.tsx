@@ -2,37 +2,37 @@ import React, {
   DetailedHTMLProps,
   InputHTMLAttributes,
   FocusEvent,
-  useContext,
-} from "react";
-import Context from "@/presentation/context/form/form-context";
-import Styles from "./input-styles.scss";
+  useContext
+} from 'react'
+import Context from '@/presentation/context/form/form-context'
+import Styles from './input-styles.scss'
 
 type InputProps = DetailedHTMLProps<
-  InputHTMLAttributes<HTMLInputElement>,
-  HTMLInputElement
->;
+InputHTMLAttributes<HTMLInputElement>,
+HTMLInputElement
+>
 
-const Input = (props: InputProps) => {
-  const { initialState, setInitialState } = useContext(Context);
-  const error = initialState[`${props.name}Error`];
+const Input: React.FC<InputProps> = (props: InputProps) => {
+  const { initialState, setInitialState } = useContext(Context)
+  const error = initialState[`${props.name}Error`]
 
-  function enableInput(event: FocusEvent<HTMLInputElement>): void {
-    event.target.readOnly = false;
+  function enableInput (event: FocusEvent<HTMLInputElement>): void {
+    event.target.readOnly = false
   }
 
-  function getTitle(): string {
-    return error || "Tudo certo!";
+  function getTitle (): string {
+    return error || 'Tudo certo!'
   }
 
-  function getStatus(): string {
-    return error ? "🔴" : "🟢";
+  function getStatus (): string {
+    return error ? '🔴' : '🟢'
   }
 
-  function handleChange(event: FocusEvent<HTMLInputElement>): void {
+  function handleChange (event: FocusEvent<HTMLInputElement>): void {
     setInitialState({
       ...initialState,
-      [event.target.name]: event.target.value,
-    });
+      [event.target.name]: event.target.value
+    })
   }
 
   return (
@@ -52,7 +52,7 @@ const Input = (props: InputProps) => {
         {getStatus()}
       </span>
     </div>
-  );
-};
+  )
+}
 
-export default Input;
+export default Input
