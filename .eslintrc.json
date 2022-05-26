@@ -28,10 +28,10 @@
     "@typescript-eslint/return-await": "off",
     "@typescript-eslint/no-namespace": "off",
     "@typescript-eslint/space-before-function-paren": "off",
+    "@typescript-eslint/semi": "off",
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",
     "semi": ["error", "never"],
-    "@typescript-eslint/semi": "off",
     "no-unexpected-multiline": "error"
   }
 }
