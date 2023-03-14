@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/rodrigodiasf1984/ReactJS-Hooks-Recoil-TDD-Clean-Architecture-SOLID/issues"
   },
-  "homepage": "https://github.com/rodrigodiasf1984/ReactJS-Hooks-Recoil-TDD-Clean-Architecture-SOLID#readme"
+  "homepage": "https://github.com/rodrigodiasf1984/ReactJS-Hooks-Recoil-TDD-Clean-Architecture-SOLID#readme",
+  "devDependencies": {
+    "git-commit-msg-linter": "^4.9.2"
+  }
 }
