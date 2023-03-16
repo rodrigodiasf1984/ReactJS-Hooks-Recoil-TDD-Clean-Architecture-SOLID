@@ -7,14 +7,14 @@ import {
   HttpPostParams
 } from '@/data/protocols/http/http-post-client'
 
-export class HttpPostClientSpy implements HttpPostClient {
+export class HttpPostClientSpy<T, R> implements HttpPostClient<T, R> {
   url?: string
-  body?: object
-  response: HttpPostResponse = {
+  body?: T
+  response: HttpPostResponse<R> = {
     statusCode: HttpStatusCode.ok
   }
 
-  async post(params: HttpPostParams): Promise<HttpPostResponse> {
+  async post(params: HttpPostParams<T>): Promise<HttpPostResponse<R>> {
     this.url = params.url
     this.body = params.body
     return Promise.resolve(this.response)
