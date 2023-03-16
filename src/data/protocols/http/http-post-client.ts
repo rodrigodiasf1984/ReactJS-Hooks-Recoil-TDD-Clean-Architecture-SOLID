@@ -1,4 +1,4 @@
-import { HttpPostResponse } from './http-response'
+import { HttpPostResponse } from '.'
 
 export type HttpPostParams<T> = {
   url: string
