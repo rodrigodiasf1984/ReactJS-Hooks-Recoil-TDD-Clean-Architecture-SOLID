@@ -1,8 +1,16 @@
-import { HttpPostParams } from '@/data/protocols/http'
+import {
+  HttpPostClient,
+  HttpPostParams,
+  HttpPostResponse
+} from '@/data/protocols/http'
 import axios from 'axios'
 
-export class AxiosHttpClient {
-  async post(params: HttpPostParams<any>): Promise<any> {
-    await axios.post(params.url, params.body)
+export class AxiosHttpClient implements HttpPostClient<any, any> {
+  async post(params: HttpPostParams<any>): Promise<HttpPostResponse<any>> {
+    const httpResponse = await axios.post(params.url, params.body)
+    return {
+      statusCode: httpResponse.status,
+      body: httpResponse.data
+    }
   }
 }
